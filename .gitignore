@@ -42,3 +42,4 @@
 
 # CMake specifics
 build/
+out/
