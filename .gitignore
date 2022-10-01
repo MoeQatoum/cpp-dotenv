@@ -43,3 +43,4 @@
 # CMake specifics
 build/
 out/
+lib/
