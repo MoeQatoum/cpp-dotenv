@@ -50,7 +50,7 @@ if ("${CMAKE_BUILD_TYPE}" STREQUAL "DEBUG")
     )
 else()
     target_compile_options(${CPP_DOTENV} PRIVATE
-        -O3
+        -O3 
     )
 endif()
 
