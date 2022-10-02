@@ -12,7 +12,7 @@ BUILD_DIR="./build"
 CONFIG=RELEASE
 run=yes
 JOBS=
-TARGET
+TARGET=
 
 opts=( "$@" )
 for ((i=0;i<$#;i++));do
@@ -39,7 +39,6 @@ case "${opts[$i]}" in
     else
     JOBS="-j"
     fi
-    printf "${Y}$JOBS${W}\n"
     ;;
   --target)
     TARGET="--target ${opts[$((i+1))]}"
@@ -79,7 +78,7 @@ then
   exit 1
 fi
 
-cmake --build $BUILD_DIR $TARGET install $JOBS 
+cmake --build $BUILD_DIR $TARGET $JOBS 
 if [[ $? -eq 0 ]]
 then
   printf "${G}-- Build successful.${W}\n"
