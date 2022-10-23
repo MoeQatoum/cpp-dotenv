@@ -2,6 +2,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(cpp-dotenv VERSION 1.0.0)
 
+add_compile_definitions(ANTLR4CPP_STATIC)
+
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 

@@ -29,7 +29,7 @@ void CheckerListener::exitPair(DotenvParser::PairContext* ctx)
 
 void CheckerListener::exitKey(DotenvParser::KeyContext* ctx)
 {
-    _errored = ctx->export_token != nullptr and ctx->export_token->getText() != EXPORT_TOKEN;
+    _errored = ctx->export_token != nullptr && ctx->export_token->getText() != EXPORT_TOKEN;
 
     if (_errored)
     {

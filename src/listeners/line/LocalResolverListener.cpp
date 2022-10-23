@@ -48,7 +48,7 @@ void LocalResolverListener::exitVariable(LineParser::VariableContext* ctx)
 
     // If the found symbol is completely defined and resolved, substitute it in
     // the original string
-    if (var.local() and var.complete())
+    if (var.local() && var.complete())
     {
         SymbolRecord& record = symbols_table.at(key);
 

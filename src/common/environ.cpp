@@ -20,7 +20,7 @@ int setenv(const char *name, const char *value, int overwrite)
         size_t envsize = 0;
         errcode = getenv_s(&envsize, nullptr, 0, name);
 
-        if (errcode != 0 or envsize != 0)
+        if (errcode != 0 || envsize != 0)
         {
             return errcode;
         }
@@ -36,7 +36,7 @@ pair<bool, string> dotenv::getenv(const string& name)
     const char* value = ::getenv(name.c_str());
     const bool success = value != nullptr;
 
-    if (not success)
+    if (!success)
     {
         value = "";
     }

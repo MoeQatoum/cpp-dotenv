@@ -315,15 +315,17 @@ target_include_directories(${ANTLR4_CPP_RUNTIME} PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
-if ("${CMAKE_BUILD_TYPE}" STREQUAL "DEBUG")
-    target_compile_options(${ANTLR4_CPP_RUNTIME} PRIVATE
-        -g -Wall -O0
-    )
-else()
-    target_compile_options(${ANTLR4_CPP_RUNTIME} PRIVATE
-        -w -O3
-    )
-    target_compile_options(${ANTLR4_CPP_RUNTIME} PUBLIC
-        -Wno-attributes
-    )
+if (NOT MSVC)
+    if ("${CMAKE_BUILD_TYPE}" STREQUAL "DEBUG")
+        target_compile_options(${ANTLR4_CPP_RUNTIME} PRIVATE
+            -g -Wall -O0
+        )
+    else()
+        target_compile_options(${ANTLR4_CPP_RUNTIME} PRIVATE
+            -w -O3
+        )
+        target_compile_options(${ANTLR4_CPP_RUNTIME} PUBLIC
+            -Wno-attributes
+        )
+endif()
 endif()

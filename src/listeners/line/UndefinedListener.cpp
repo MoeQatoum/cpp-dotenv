@@ -48,7 +48,7 @@ void UndefinedListener::exitVariable(LineParser::VariableContext* ctx)
     // If there is more than one substitution operation, they must be performed
     // from end to beginning so position and size indices are maintained
     // constant throughout the different operations
-    if (not var.local() and not var.complete())
+    if (!var.local() && !var.complete())
     {
         SymbolRecord& record = symbols_table.at(key);
         resolve_stack.emplace(record.value(), "", pos, size);

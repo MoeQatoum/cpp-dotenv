@@ -37,7 +37,7 @@ void SymbolsListener::exitPair(DotenvParser::PairContext* ctx)
     // exists, do not record it on the symbols table
     // Later on, during resolution, it will be brought from the external
     // environment, just as expected
-    if (not overwrite and getenv(_key).first)
+    if (!overwrite && getenv(_key).first)
     {
         return;
     }

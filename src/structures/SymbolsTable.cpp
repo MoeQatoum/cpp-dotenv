@@ -23,7 +23,7 @@ SymbolRecord::SymbolRecord(const bool declared,
 bool SymbolRecord::complete() const
 {
     // A complete symbol is a declared, defined and resolved one
-    return _declared and _defined and _num_depends == 0;
+    return _declared && _defined && _num_depends == 0;
 }
 
 
@@ -104,12 +104,12 @@ void SymbolRecord::set_value(const string& value)
 {
     // Despite maybe not being resolved, value implies declaration and
     // definition
-    if (not _declared)
+    if (!_declared)
     {
         _declared = true;
     }
 
-    if (not _defined)
+    if (!_defined)
     {
         _defined = true;
     }

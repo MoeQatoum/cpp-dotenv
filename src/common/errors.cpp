@@ -12,7 +12,7 @@ void errors::extraneous_input_error(Token* token, const vector<string>& expected
     size_t pos = token->getCharPositionInLine();
     string msg = "line " + to_string(line) + ":" + to_string(pos) + " extraneous input '" + token->getText() + "'";
 
-    if (not expected.empty())
+    if (!expected.empty())
     {
         msg += " expecting {";
         for (const string& s: expected)

@@ -23,7 +23,7 @@ void ReplaceOperation::run()
 
 void ReplaceStack::clear()
 {
-    while (not this->empty())
+    while (!this->empty())
     {
         this->pop();
     }
@@ -32,7 +32,7 @@ void ReplaceStack::clear()
 
 void ReplaceStack::run()
 {
-    while (not this->empty())
+    while (!this->empty())
     {
         ReplaceOperation& operation = this->top();
         operation.run();

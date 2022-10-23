@@ -17,11 +17,11 @@ logger::position::position(const size_t line, const size_t pos):
 
 bool logger::position::operator<(const position& p) const
 {
-    return this->line < p.line or (this->line == p.line and this->pos < p.pos);
+    return this->line < p.line || (this->line == p.line && this->pos < p.pos);
 }
 
 
-bool logger::position::less::operator()(const position& p1, const position& p2)
+bool logger::position::less::operator()(const position& p1, const position& p2) const
 {
     return p1 < p2;
 }

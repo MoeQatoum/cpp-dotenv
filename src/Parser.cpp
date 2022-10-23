@@ -98,7 +98,7 @@ void dotenv::Parser::parse_line()
 
             // If after the check the symbol has dependency on other symbols,
             // take not of it for later resolving
-            if (not record.complete())
+            if (!record.complete())
             {
                 ++unresolved;
             }
@@ -189,7 +189,7 @@ void dotenv::Parser::resolve_local_vars()
 
         // If the symbol is local and is not yet resolved, try to resolve
         // it by walking through its dependencies again
-        if (record.local() and not record.complete())
+        if (record.local() && !record.complete())
         {
             LocalResolverListener resolver_listener(key, symbols_table);
             walk_line(record.value(), resolver_listener);
@@ -216,7 +216,7 @@ void dotenv::Parser::resolve_external_vars()
 
         // If the symbol is local and is not yet resolved, try to resolve
         // it by walking through its dependencies again
-        if (record.local() and not record.complete())
+        if (record.local() && !record.complete())
         {
             ExternalResolverListener resolver_listener(key, symbols_table);
             walk_line(record.value(), resolver_listener);
@@ -243,7 +243,7 @@ void dotenv::Parser::resolve_undefined_vars()
 
         // If the symbol is local and is not yet resolved, try to resolve
         // it by walking through its dependencies again
-        if (record.local() and not record.complete())
+        if (record.local() && !record.complete())
         {
             UndefinedListener undefined_listener(key, symbols_table);
             walk_line(record.value(), undefined_listener);
@@ -270,7 +270,7 @@ void dotenv::Parser::resolve_unresolvable_vars()
 
         // If the symbol is local and is not yet resolved, try to resolve
         // it by walking through its dependencies again
-        if (record.local() and not record.complete())
+        if (record.local() && !record.complete())
         {
             UnresolvableListener unresolvable_listener(key, symbols_table);
             walk_line(record.value(), unresolvable_listener);
@@ -297,7 +297,7 @@ void dotenv::Parser::report_undefined_vars()
 
         // If after all the process the reference symbol is still not resolved,
         // it means it is part of a circular reference
-        if (not symbol_record.complete() and not symbol_record.local())
+        if (!symbol_record.complete() && !symbol_record.local())
         {
             errors::undefined_reference_error(ref_key, reference_record.line(), reference_record.pos());
         }
@@ -317,7 +317,7 @@ void dotenv::Parser::report_unresolvable_vars()
 
         // If after all the process the reference symbol is still not resolved,
         // it means it is part of a circular reference
-        if (not symbol_record.complete() and symbol_record.local())
+        if (!symbol_record.complete() && symbol_record.local())
         {
             errors::circular_reference_error(ref_key, reference_record.line(), reference_record.pos());
         }

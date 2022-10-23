@@ -50,7 +50,7 @@ void UnresolvableListener::exitVariable(LineParser::VariableContext* ctx)
     // constant throughout the different operations
     // Do not mark variables as solved at this point since that would mess with
     // the resolution system by making it think that they are not unresolvable
-    if (var.local() and not var.complete())
+    if (var.local() && !var.complete())
     {
         SymbolRecord& record = symbols_table.at(key);
         resolve_stack.emplace(record.value(), "", pos, size);
