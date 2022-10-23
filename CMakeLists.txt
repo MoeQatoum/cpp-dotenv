@@ -29,6 +29,8 @@ set(CPP_DOTENV_SRC
 
 add_library(${CPP_DOTENV} ${CPP_DOTENV_SRC})
 
+target_compile_definitions(${CPP_DOTENV} PRIVATE ANTLR4CPP_STATIC)
+
 target_link_libraries(${CPP_DOTENV}
     ${ENVIRON_LIB}
     ${PARSER_LIB}
